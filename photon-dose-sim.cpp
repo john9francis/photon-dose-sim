@@ -6,6 +6,10 @@
 // User Interfaces:
 #include "G4UImanager.hh"
 #include "G4UIExecutive.hh"
+
+// run manager
+#include "G4RunManagerFactory.hh"
+
 // visualization
 #include "G4VisExecutive.hh"
 
@@ -17,6 +21,12 @@ int main(int argc, char** argv)
 	G4UIExecutive* ui = nullptr;
 	if (argc == 1) { ui = new G4UIExecutive(argc, argv); }
 	
+    // Construct the default run manager
+    //
+    auto* runManager =
+        G4RunManagerFactory::CreateRunManager(G4RunManagerType::Default);
+
+
     // Initialize visualization
     //
     G4VisManager* visManager = new G4VisExecutive;
@@ -39,8 +49,10 @@ int main(int argc, char** argv)
     else {
         // interactive mode
         // 
-        // Note: we don't have an init_vis.mac file yet... I gotta make one.
-        //UImanager->ApplyCommand("/control/execute init_vis.mac");
+        // set the macro path to 'mac_files'
+        UImanager->ApplyCommand("/control/macroPath mac_files");
+
+        UImanager->ApplyCommand("/control/execute init_vis.mac");
         ui->SessionStart();
         delete ui;
         
@@ -48,6 +60,7 @@ int main(int argc, char** argv)
 
     //clean up
     delete visManager;
+    delete runManager;
 
 
 }
