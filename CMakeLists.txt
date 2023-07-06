@@ -48,7 +48,7 @@ set(PHOTON-DOSE-SIM_SCRIPTS
 foreach(_script ${PHOTON-DOSE-SIM_SCRIPTS})
   configure_file(
     ${PROJECT_SOURCE_DIR}/mac_files/${_script}
-    ${PROJECT_BINARY_DIR}/${_script}
+    ${PROJECT_BINARY_DIR}/Release/${_script}
     COPYONLY
     )
 endforeach()

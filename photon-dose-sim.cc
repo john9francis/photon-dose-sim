@@ -29,9 +29,6 @@ int main(int argc, char** argv)
     auto* runManager =
         G4RunManagerFactory::CreateRunManager(G4RunManagerType::Default);
 
-    // detector construction
-    runManager->SetUserInitialization(new DetectorConstruction());
-
     // Initialize visualization
     //
     G4VisManager* visManager = new G4VisExecutive;
