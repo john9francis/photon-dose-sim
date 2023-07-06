@@ -1,7 +1,7 @@
 ﻿// photon-dose-sim.cpp : Defines the entry point for the application.
 //
 
-#include "photon-dose-sim.h"
+#include "photon-dose-sim.hh"
 
 // User Interfaces:
 #include "G4UImanager.hh"
@@ -12,6 +12,9 @@
 
 // visualization
 #include "G4VisExecutive.hh"
+
+// detector stuff
+#include "DetectorConstruction.hh"
 
 using namespace std;
 
@@ -26,6 +29,8 @@ int main(int argc, char** argv)
     auto* runManager =
         G4RunManagerFactory::CreateRunManager(G4RunManagerType::Default);
 
+    // detector construction
+    runManager->SetUserInitialization(new DetectorConstruction());
 
     // Initialize visualization
     //
