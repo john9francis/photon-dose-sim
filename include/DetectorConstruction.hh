@@ -38,7 +38,7 @@ class G4LogicalVolume;
 
 /// Detector construction class to define materials and geometry.
 
-namespace B1
+namespace photon_dose_sim
 {
 
     class DetectorConstruction : public G4VUserDetectorConstruction

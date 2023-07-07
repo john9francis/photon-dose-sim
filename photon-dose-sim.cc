@@ -3,27 +3,12 @@
 
 #include "photon-dose-sim.hh"
 
-// User Interfaces:
-#include "G4UImanager.hh"
-#include "G4UIExecutive.hh"
-
-// run manager
-#include "G4RunManagerFactory.hh"
-
-// visualization
-#include "G4VisExecutive.hh"
-
-// detector stuff
-#include "DetectorConstruction.hh"
-
-using namespace std;
-
 int main(int argc, char** argv)
 {
     // if this program is run on it's own with no other args, the ui is defined.
-	G4UIExecutive* ui = nullptr;
-	if (argc == 1) { ui = new G4UIExecutive(argc, argv); }
-	
+    G4UIExecutive* ui = nullptr;
+    if (argc == 1) { ui = new G4UIExecutive(argc, argv); }
+
     // Construct the default run manager
     //
     auto* runManager =
@@ -42,7 +27,7 @@ int main(int argc, char** argv)
 
     // Process macro or start UI session
     //
-    if ( ! ui) {
+    if (!ui) {
         // batch mode
         G4String command = "/control/execute ";
         G4String fileName = argv[1];
@@ -57,12 +42,13 @@ int main(int argc, char** argv)
         UImanager->ApplyCommand("/control/execute init_vis.mac");
         ui->SessionStart();
         delete ui;
-        
+
     }
 
     //clean up
     delete visManager;
     delete runManager;
 
+    return 0;
 
 }
