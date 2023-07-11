@@ -1,7 +1,28 @@
-﻿// photon-dose-sim.cpp : Defines the entry point for the application.
+﻿// photon-dose-sim.cc : Defines the entry point for the application.
 //
 
-#include "photon-dose-sim.hh"
+// User Interfaces:
+#include "G4UImanager.hh"
+#include "G4UIExecutive.hh"
+
+// run manager
+#include "G4RunManagerFactory.hh"
+
+// visualization
+#include "G4VisExecutive.hh"
+
+// other G4 classes
+#include "G4RunManagerFactory.hh"
+#include "G4SteppingVerbose.hh"
+#include "QBBC.hh"
+
+#include "Randomize.hh"
+
+// our own classes
+#include "ActionInitialization.hh"
+#include "DetectorConstruction.hh"
+
+using namespace photon_dose_sim;
 
 int main(int argc, char** argv)
 {
@@ -13,6 +34,20 @@ int main(int argc, char** argv)
     //
     auto* runManager =
         G4RunManagerFactory::CreateRunManager(G4RunManagerType::Default);
+
+    // Set mandatory initialization classes
+    //
+    // Detector construction
+    runManager->SetUserInitialization(new DetectorConstruction());
+
+    // Physics list
+    G4VModularPhysicsList* physicsList = new QBBC;
+    physicsList->SetVerboseLevel(1);
+    runManager->SetUserInitialization(physicsList);
+
+    // User action initialization
+    runManager->SetUserInitialization(new ActionInitialization());
+
 
     // Initialize visualization
     //
