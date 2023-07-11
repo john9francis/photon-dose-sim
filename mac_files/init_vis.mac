@@ -4,7 +4,7 @@
 #/run/verbose 2
 #
 # Initialize kernel
-#/run/initialize
+/run/initialize
 #
 # Visualization setting
 /control/execute vis.mac

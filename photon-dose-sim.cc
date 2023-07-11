@@ -21,6 +21,9 @@ int main(int argc, char** argv)
     // G4VisManager* visManager = new G4VisExecutive("Quiet");
     visManager->Initialize();
 
+    // initialize geometry
+    runManager->InitializeGeometry();
+
     // Get the pointer to the User Interface manager
     G4UImanager* UImanager = G4UImanager::GetUIpointer();
 

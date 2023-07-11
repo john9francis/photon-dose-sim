@@ -1,1 +1,4 @@
 /vis/open OGL
+/vis/drawVolume
+/vis/scene/create
+/vis/scene/add/volume world -1 -1 none m 0 0 0 0 0 0
