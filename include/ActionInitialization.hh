@@ -18,7 +18,7 @@ namespace photon_dose_sim
         ~ActionInitialization() override = default;
 
         void BuildForMaster() const override;
-        void Build() const override = default;
+        void Build() const override;
     };
 
 }

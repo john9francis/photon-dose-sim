@@ -12,4 +12,12 @@ namespace photon_dose_sim
 		
 	}
 
+	void ActionInitialization::Build() const
+	{
+
+		auto runAction = new RunAction;
+		SetUserAction(runAction);
+
+	}
+
 }
