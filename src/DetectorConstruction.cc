@@ -23,9 +23,16 @@ namespace photon_dose_sim
         G4Material* worldMaterial = nist->FindOrBuildMaterial("G4_AIR");
         G4bool checkOverlaps = false;
 
+        G4int worldSizeX = 10*cm;
+        G4int worldSizeY = 10*cm;
+        G4int worldSizeZ = 10*cm;
+
+
         // define worlds
         auto solidWorld = new G4Box("World",
-            10, 10, 10);
+            worldSizeX,                 // default is mm (it seems like)
+            worldSizeY,
+            worldSizeZ);
 
         auto logicWorld = new G4LogicalVolume(solidWorld,
             worldMaterial, "World");
@@ -41,20 +48,26 @@ namespace photon_dose_sim
 
         // detector made of tissue material
         G4Material* detectorMaterial = nist->FindOrBuildMaterial("G4_A-150_TISSUE");
+        G4int detectorSizeX = 5*cm;
+        G4int detectorSizeY = 5*cm;
+        G4int detectorSizeZ = 1*cm;
+        G4ThreeVector detectorPos = G4ThreeVector(0, 0, -5*cm);
 
         auto solidDetector = new G4Box("Detector",
-            1, 1, 1);
+            detectorSizeX,
+            detectorSizeY,
+            detectorSizeZ);
 
         auto logicDetector = new G4LogicalVolume(solidDetector,
             detectorMaterial,
             "Detector");
-
-        new G4PVPlacement(nullptr,  // no rotation
-            G4ThreeVector(),          // at (0,0,0)
-            logicDetector,                 // its logical volume
+        
+        new G4PVPlacement(nullptr,    // rotation
+            detectorPos,          // position
+            logicDetector,            // its logical volume
             "Detector",               // its name
             logicWorld,               // its mother  volume
-            false,                    // no boolean operation
+            false,                    // boolean operation
             0,                        // copy number
             checkOverlaps);           // overlaps checking
 
