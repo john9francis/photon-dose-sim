@@ -19,9 +19,9 @@ namespace photon_dose_sim
 
 		// define particle stuff
 		G4ParticleTable* particleTable = G4ParticleTable::GetParticleTable();
-		G4string particleName;
+		G4String particleName;
 
-		G4ParticleDefinition* particle = particleTable->FindParticle(particleName = "photon");
+		G4ParticleDefinition* particle = particleTable->FindParticle(particleName = "gamma");
 		fParticleGun->SetParticleDefinition(particle);
 		fParticleGun->SetParticleMomentumDirection(G4ThreeVector(0., 0., 1.));
 		fParticleGun->SetParticleEnergy(100. * keV);
