@@ -1,4 +1,6 @@
 #include "ActionInitialization.hh"
+
+#include "PrimaryGeneratorAction.hh"
 #include "RunAction.hh"
 
 namespace photon_dose_sim
@@ -14,6 +16,7 @@ namespace photon_dose_sim
 
 	void ActionInitialization::Build() const
 	{
+		SetUserAction(new PrimaryGeneratorAction);
 
 		auto runAction = new RunAction;
 		SetUserAction(runAction);
