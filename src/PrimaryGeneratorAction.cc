@@ -24,7 +24,7 @@ namespace photon_dose_sim
 		G4ParticleDefinition* particle = particleTable->FindParticle(particleName = "opticalphoton");
 		fParticleGun->SetParticleDefinition(particle);
 		fParticleGun->SetParticleMomentumDirection(G4ThreeVector(0., 0., 1.));
-		fParticleGun->SetParticleEnergy(100. * keV);
+		fParticleGun->SetParticleEnergy(1. * eV);
 	}
 
 	PrimaryGeneratorAction::~PrimaryGeneratorAction() 

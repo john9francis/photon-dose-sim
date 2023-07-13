@@ -26,7 +26,7 @@ namespace photon_dose_sim
 		auto eventAction = new EventAction(runAction);
 		SetUserAction(eventAction);
 
-		//SetUserAction(new SteppingAction(eventAction));
+		SetUserAction(new SteppingAction(eventAction));
 
 	}
 
