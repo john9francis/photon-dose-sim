@@ -8,5 +8,12 @@
 # set style
 /vis/viewer/set/style wireframe
 /vis/viewer/set/auxiliaryEdge true
+# draw the particle trajectories
+/vis/scene/add/trajectories smooth
+/vis/modeling/trajectories/create/drawByCharge
+/vis/modeling/trajectories/drawByCharge-0/default/setDrawStepPts true
+/vis/modeling/trajectories/drawByCharge-0/default/setStepPtsSize 2
+# superimpose all of the events at end of run
+/vis/scene/endOfEventAction accumulate
 # make world invisible
 /vis/geometry/set/visibility World 0 false
