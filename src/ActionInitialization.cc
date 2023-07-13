@@ -2,6 +2,8 @@
 
 #include "PrimaryGeneratorAction.hh"
 #include "RunAction.hh"
+#include "EventAction.hh"
+#include "SteppingAction.hh"
 
 namespace photon_dose_sim
 {
@@ -20,6 +22,11 @@ namespace photon_dose_sim
 
 		auto runAction = new RunAction;
 		SetUserAction(runAction);
+
+		auto eventAction = new EventAction(runAction);
+		SetUserAction(eventAction);
+
+		SetUserAction(new SteppingAction(eventAction));
 
 	}
 
