@@ -43,6 +43,7 @@ target_link_libraries(photon-dose-sim ${Geant4_LIBRARIES})
 set(PHOTON-DOSE-SIM_SCRIPTS
   init_vis.mac
   vis.mac
+  test_run.mac
   )
 
 foreach(_script ${PHOTON-DOSE-SIM_SCRIPTS})

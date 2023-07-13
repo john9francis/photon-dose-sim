@@ -1,0 +1,7 @@
+# A SIMPLE TEST RUN
+#
+/run/initialize
+/gun/particle opticalphoton
+/gun/energy 100 keV
+#
+/run/beamOn 5
