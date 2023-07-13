@@ -3,7 +3,7 @@
 # initialize geometry
 /vis/drawVolume
 # set view angle
-/vis/viewer/set/viewpointVector 1 1 1
+/vis/viewer/set/viewpointVector -1 -.5 1
 /vis/viewer/set/lightsVector 1 0 0
 # set style
 /vis/viewer/set/style wireframe

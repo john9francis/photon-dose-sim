@@ -73,9 +73,6 @@ int main(int argc, char** argv)
     }
     else {
         // interactive mode
-        // 
-        // set the macro path to 'mac_files'
-        UImanager->ApplyCommand("/control/macroPath mac_files");
 
         UImanager->ApplyCommand("/control/execute init_vis.mac");
         ui->SessionStart();

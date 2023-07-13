@@ -71,8 +71,8 @@ namespace photon_dose_sim
         G4Material* detectorMaterial = nist->FindOrBuildMaterial("G4_A-150_TISSUE");
         G4int detectorSizeX = 5*cm;
         G4int detectorSizeY = 5*cm;
-        G4int detectorSizeZ = 1*cm;
-        G4ThreeVector detectorPos = G4ThreeVector(0, 0, -5*cm);
+        G4int detectorSizeZ = 3*cm;
+        G4ThreeVector detectorPos = G4ThreeVector(0, 0, 5*cm);
 
         auto solidDetector = new G4Box("Detector",
             detectorSizeX,
