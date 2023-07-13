@@ -69,9 +69,9 @@ namespace photon_dose_sim
 
         // detector made of tissue material
         G4Material* detectorMaterial = nist->FindOrBuildMaterial("G4_A-150_TISSUE");
-        G4int detectorSizeX = 5*cm;
-        G4int detectorSizeY = 5*cm;
-        G4int detectorSizeZ = 3*cm;
+        G4int detectorSizeX = env_sizeXY * .4;
+        G4int detectorSizeY = env_sizeXY * .4;
+        G4int detectorSizeZ = 1*cm;
         G4ThreeVector detectorPos = G4ThreeVector(0, 0, 5*cm);
 
         auto solidDetector = new G4Box("Detector",
@@ -84,7 +84,7 @@ namespace photon_dose_sim
             "Detector");
         
         new G4PVPlacement(nullptr,    // rotation
-            detectorPos,          // position
+            detectorPos,              // position
             logicDetector,            // its logical volume
             "Detector",               // its name
             logicWorld,               // its mother  volume

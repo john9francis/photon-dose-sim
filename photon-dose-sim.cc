@@ -11,6 +11,9 @@
 // visualization
 #include "G4VisExecutive.hh"
 
+// scoring
+#include "G4ScoringManager.hh"
+
 // other G4 classes
 #include "G4RunManagerFactory.hh"
 #include "G4SteppingVerbose.hh"
@@ -34,6 +37,9 @@ int main(int argc, char** argv)
     //
     auto* runManager =
         G4RunManagerFactory::CreateRunManager(G4RunManagerType::Default);
+
+    // create scoring manager to allow ui scoring
+    G4ScoringManager::GetScoringManager();
 
     // Set mandatory initialization classes
     //

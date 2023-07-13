@@ -1,6 +1,6 @@
 #include "RunAction.hh"
 #include "DetectorConstruction.hh"
-// #include "Run.hh"
+#include "PrimaryGeneratorAction.hh"
 
 #include "G4RunManager.hh"
 #include "G4Run.hh"
@@ -72,17 +72,17 @@ namespace photon_dose_sim
         // Run conditions
         //  note: There is no primary generator action object for "master"
         //        run manager for multi-threaded mode.
-        //const auto generatorAction = static_cast<const PrimaryGeneratorAction*>(
-        //    G4RunManager::GetRunManager()->GetUserPrimaryGeneratorAction());
-        //G4String runCondition;
-        //if (generatorAction)
-        //{
-        //    const G4ParticleGun* particleGun = generatorAction->GetParticleGun();
-        //    runCondition += particleGun->GetParticleDefinition()->GetParticleName();
-        //    runCondition += " of ";
-        //    G4double particleEnergy = particleGun->GetParticleEnergy();
-        //    runCondition += G4BestUnit(particleEnergy, "Energy");
-        //}
+        const auto generatorAction = static_cast<const PrimaryGeneratorAction*>(
+            G4RunManager::GetRunManager()->GetUserPrimaryGeneratorAction());
+        G4String runCondition;
+        if (generatorAction)
+        {
+            const G4ParticleGun* particleGun = generatorAction->GetParticleGun();
+            runCondition += particleGun->GetParticleDefinition()->GetParticleName();
+            runCondition += " of ";
+            G4double particleEnergy = particleGun->GetParticleEnergy();
+            runCondition += G4BestUnit(particleEnergy, "Energy");
+        }
 
         // Print
         //

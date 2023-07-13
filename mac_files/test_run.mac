@@ -4,5 +4,8 @@
 /gun/particle opticalphoton
 /gun/energy 100 keV
 #
+# scoring
+/score/create/realWorldLogVol Detector
+#
 /run/printProgress 100
 /run/beamOn 100
