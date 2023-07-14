@@ -20,6 +20,7 @@ This project is written in C++ and utilizes the Geant4 toolkit.
 
 # Useful Websites
 
+- [MinGLE Mini Geant4 Learning Example](https://github.com/jintonic/mingle)
 - [Installing Geant4 tutorial video](https://youtu.be/w7k9PK1Ipv8)
 - [Installing Geant4 with Qt visualization driver](https://youtu.be/rtCsfDD45Bc)
 - [Geant4 website](https://geant4.web.cern.ch/)
