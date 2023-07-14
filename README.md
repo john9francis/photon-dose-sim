@@ -31,6 +31,7 @@ My own content:
 - [Installing Geant4 tutorial video](https://youtu.be/w7k9PK1Ipv8)
 - [Installing Geant4 with Qt visualization driver](https://youtu.be/rtCsfDD45Bc)
 - [Geant4 basic organization infographic](https://prezi.com/i/gp3kiz0ubh3e/)
+- [Photon dose sim organization infographic](https://prezi.com/i/o7edcdeqyjh3/)
 
 # Future Work
 
