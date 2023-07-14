@@ -1,8 +1,8 @@
 # A SIMPLE TEST RUN
 #
 /run/initialize
-/gun/particle opticalphoton
-/gun/energy 100 keV
+#/gun/particle opticalphoton
+#/gun/energy 100 keV
 #
 # scoring
 /score/create/realWorldLogVol Detector
