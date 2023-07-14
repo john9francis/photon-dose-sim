@@ -71,6 +71,12 @@ namespace photon_dose_sim
 
 		fParticleGun->SetParticlePosition(G4ThreeVector(x0, y0, z0));
 
+		// Randomize the energy within a desired range
+		G4double energyMin = 50 * eV;
+		G4double energyMax = 150 * keV;
+		G4double energy = G4UniformRand() * (energyMax - energyMin) + energyMin;
+		fParticleGun->SetParticleEnergy(energy);
+
 		fParticleGun->GeneratePrimaryVertex(anEvent);
 	}
 }
