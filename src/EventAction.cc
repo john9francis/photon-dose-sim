@@ -1,7 +1,3 @@
-//
-// ********************************************************************
-// * License and Disclaimer                                           *
-// *                                                                  *
 #include "EventAction.hh"
 #include "RunAction.hh"
 
