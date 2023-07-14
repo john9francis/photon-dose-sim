@@ -47,6 +47,7 @@ namespace photon_dose_sim
             checkOverlaps);                            // overlaps checking
 
         // create envelope
+        /*
         G4double env_sizeXY = 20 * cm, env_sizeZ = 30 * cm;
         G4Material* env_mat = nist->FindOrBuildMaterial("G4_AIR");
 
@@ -66,12 +67,13 @@ namespace photon_dose_sim
             0,                        // copy number
             checkOverlaps);           // overlaps checking
 
+        */
 
-        // detector made of tissue material
-        G4Material* detectorMaterial = nist->FindOrBuildMaterial("G4_W");
-        G4double detectorSizeX = env_sizeXY * .4;
-        G4double detectorSizeY = env_sizeXY * .4;
-        G4double detectorSizeZ = 1 * cm;
+        // detector made of water material
+        G4Material* detectorMaterial = nist->FindOrBuildMaterial("G4_WATER");
+        G4double detectorSizeX = worldSizeX * .4;
+        G4double detectorSizeY = worldSizeY * .4;
+        G4double detectorSizeZ = 10 * cm;
         G4ThreeVector detectorPos = G4ThreeVector(0, 0, 5*cm);
 
         auto solidDetector = new G4Box("Detector",

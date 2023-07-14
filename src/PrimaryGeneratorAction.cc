@@ -21,10 +21,11 @@ namespace photon_dose_sim
 		G4ParticleTable* particleTable = G4ParticleTable::GetParticleTable();
 		G4String particleName;
 
-		G4ParticleDefinition* particle = particleTable->FindParticle(particleName = "opticalphoton");
+		G4ParticleDefinition* particle = particleTable->FindParticle(particleName = "gamma");
 		fParticleGun->SetParticleDefinition(particle);
+		fParticleGun->SetParticlePolarization(G4ThreeVector());
 		fParticleGun->SetParticleMomentumDirection(G4ThreeVector(0., 0., 1.));
-		fParticleGun->SetParticleEnergy(1. * eV);
+		fParticleGun->SetParticleEnergy(6. * MeV);
 	}
 
 	PrimaryGeneratorAction::~PrimaryGeneratorAction() 
@@ -35,47 +36,15 @@ namespace photon_dose_sim
 	void PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
 	{
 		//this function is called at the begining of ecah event
-		//
 
-		// In order to avoid dependence of PrimaryGeneratorAction
-		// on DetectorConstruction class we get Envelope volume
-		// from G4LogicalVolumeStore.
-
-		G4double envSizeXY = 0;
-		G4double envSizeZ = 0;
-
-		if (!fEnvelopeBox)
-		{
-			G4LogicalVolume* envLV
-				= G4LogicalVolumeStore::GetInstance()->GetVolume("Envelope");
-			if (envLV) fEnvelopeBox = dynamic_cast<G4Box*>(envLV->GetSolid());
-		}
-
-		if (fEnvelopeBox) {
-			envSizeXY = fEnvelopeBox->GetXHalfLength() * 2.;
-			envSizeZ = fEnvelopeBox->GetZHalfLength() * 2.;
-		}
-		else {
-			G4ExceptionDescription msg;
-			msg << "Envelope volume of box shape not found.\n";
-			msg << "Perhaps you have changed geometry.\n";
-			msg << "The gun will be place at the center.";
-			G4Exception("PrimaryGeneratorAction::GeneratePrimaries()",
-				"MyCode0002", JustWarning, msg);
-		}
-
-		G4double size = 0.8;
-		G4double x0 = size * envSizeXY * (G4UniformRand() - 0.5);
-		G4double y0 = size * envSizeXY * (G4UniformRand() - 0.5);
-		G4double z0 = -0.5 * envSizeZ;
-
+		// random gun placement
+		G4double x0 = 0 * cm, y0 = 0 * cm, z0 = -3 * cm;
+		G4double dx0 = 5 * cm, dy0 = 5 * cm, dz0 = 5 * cm;
+		x0 += dx0 * (G4UniformRand() - 0.5);
+		y0 += dy0 * (G4UniformRand() - 0.5);
+		z0 += dz0 * (G4UniformRand() - 0.5);
 		fParticleGun->SetParticlePosition(G4ThreeVector(x0, y0, z0));
-
-		// Randomize the energy within a desired range
-		G4double energyMin = 50 * eV;
-		G4double energyMax = 150 * keV;
-		G4double energy = G4UniformRand() * (energyMax - energyMin) + energyMin;
-		fParticleGun->SetParticleEnergy(energy);
+		fParticleGun->GeneratePrimaryVertex(anEvent);
 
 		fParticleGun->GeneratePrimaryVertex(anEvent);
 	}

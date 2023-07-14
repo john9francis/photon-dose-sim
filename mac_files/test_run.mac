@@ -5,13 +5,13 @@
 #/gun/energy 100 keV
 #
 # scoring
-/score/create/realWorldLogVol Detector
-/score/quantity/nOfCollision collisions
-/score/quantity/energyDeposit eDep eV
-/score/quantity/doseDeposit dDep Gy
-/score/close
+#/score/create/realWorldLogVol Detector
+#/score/quantity/nOfCollision collisions
+#/score/quantity/energyDeposit eDep eV
+#/score/quantity/doseDeposit dDep Gy
+#/score/close
 #
 /run/printProgress 100
 /run/beamOn 100
 #
-/score/dumpAllQuantitiesToFile Detector results.txt
+#/score/dumpAllQuantitiesToFile Detector results.txt
