@@ -4,7 +4,7 @@ Photon Dose Sim is a physics simulation of the radiation dose delivered by photo
 
 I created this software to become familiar with Geant4 and it's organization. I also created it to get more experience modelling medical simulations.
 
-[Software Demo Video](http://youtube.link.goes.here)
+[Software Demo Video](https://youtu.be/mqMxX8hLwwU)
 
 # How to run
 
