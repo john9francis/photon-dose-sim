@@ -41,3 +41,4 @@ My own content:
 - Make the hits on the detector display visually
 - Make a more intense run, like 10^9 particles instead of just 100
 - Optimize preformance, look into multithreaded mode
+- Create an installer for automatic installation
