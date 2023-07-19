@@ -1,6 +1,6 @@
 # Overview
 
-[Latest release](https://github.com/john9francis/photon-dose-sim/releases/latest)
+[![Latest release](https://github.com/john9francis/photon-dose-sim/releases/latest)
 
 Photon Dose Sim is a physics simulation of the radiation dose delivered by photons. It consists of one detector made out of water, and one particle gun that shoots 6 MeV gamma particles. 
 
